@@ -1,6 +1,4 @@
-import java.util.*
-
-class Note (val title: String, private var content: String = "") : MenuItem() {
+class NoteMenu (val title: String, private var content: String = "") : MenuItem() {
     override fun toString(): String {
         return "Title: $title\n" +
                 "Text: $content"
@@ -17,9 +15,8 @@ class Note (val title: String, private var content: String = "") : MenuItem() {
     }
 
     override fun handleMenu() {
-        var validInput = false
-        while (!validInput){
-            val input = Scanner(System.`in`).nextLine().toIntOrNull()
+        while (true){
+            scanner.nextLine().toIntOrNull()
                 ?.let {
                         value ->
                     when(value) {
