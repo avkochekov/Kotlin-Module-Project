@@ -1,7 +1,7 @@
 import java.util.*
 
 abstract class MenuItem {
-    var list : MutableList<MenuItem> = mutableListOf()
+    var list: MutableList<MenuItem> = mutableListOf()
     protected val scanner: Scanner = Scanner(System.`in`)
 
     open val menuTitle: String = ""
@@ -25,11 +25,10 @@ abstract class MenuItem {
     }
 
     protected open fun handleMenu() {
-        while (true){
+        while (true) {
             scanner.nextLine().toIntOrNull()
-                ?.let {
-                        value ->
-                    when(value) {
+                ?.let { value ->
+                    when (value) {
                         1 -> add()
                         2 -> remove()
                         3 -> show()
@@ -53,18 +52,18 @@ abstract class MenuItem {
 
     protected fun getText(): String? {
         var data: String? = null
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             data = scanner.nextLine()
             return data.ifEmpty { null }
         }
         return null
     }
 
-    protected fun getIndex() : Int? {
+    protected fun getIndex(): Int? {
         getText()
             ?.toIntOrNull()
             ?.let { index ->
-                if ((index > 0) && (index <= list.size)){
+                if ((index > 0) && (index <= list.size)) {
                     return index - 1
                 } else {
                     return null
@@ -86,7 +85,7 @@ abstract class MenuItem {
         list.elementAt(index).touch()
     }
 
-    protected fun showItems(){
+    protected fun showItems() {
         var index: Int = 0
         for (item in list)
             println("   ${++index}: $item")

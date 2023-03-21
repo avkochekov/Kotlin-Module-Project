@@ -9,7 +9,7 @@ class ArchiveListMenu : MenuItem() {
     override fun add() {
         println("Enter archive title")
         getText()
-            ?. let { title ->
+            ?.let { title ->
                 addItem(ArchiveMenu(title))
                 println("Added archive \"$title\"")
             }
@@ -19,7 +19,7 @@ class ArchiveListMenu : MenuItem() {
     override fun remove() {
         println("Enter archive index")
         getIndex()
-            ?. let { index ->
+            ?.let { index ->
                 removeItem(index)
                 println("Archive removed")
             }
@@ -29,11 +29,11 @@ class ArchiveListMenu : MenuItem() {
     override fun select() {
         println("Enter archive index")
         getIndex()
-            ?. let { index -> selectItem(index) }
+            ?.let { index -> selectItem(index) }
             ?: println("Invalid archive index")
     }
 
-    override fun show(){
+    override fun show() {
         println("Archives:")
         showItems()
     }

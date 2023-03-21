@@ -1,4 +1,4 @@
-class NoteMenu (val title: String, private var content: String = "") : MenuItem() {
+class NoteMenu(val title: String, private var content: String = "") : MenuItem() {
     override fun toString(): String {
         return "Title: $title\n" +
                 "Text: $content"
@@ -15,11 +15,10 @@ class NoteMenu (val title: String, private var content: String = "") : MenuItem(
     }
 
     override fun handleMenu() {
-        while (true){
+        while (true) {
             scanner.nextLine().toIntOrNull()
-                ?.let {
-                        value ->
-                    when(value) {
+                ?.let { value ->
+                    when (value) {
                         1 -> show()
                         2 -> add()
                         3 -> remove()
@@ -34,7 +33,7 @@ class NoteMenu (val title: String, private var content: String = "") : MenuItem(
 
     override fun add() {
         println("Enter note text")
-        getText()?. let { text -> content = text }
+        getText()?.let { text -> content = text }
     }
 
     override fun remove() {
@@ -42,9 +41,9 @@ class NoteMenu (val title: String, private var content: String = "") : MenuItem(
         println("Text removed")
     }
 
-    override fun select() { }
+    override fun select() {}
 
-    override fun show(){
+    override fun show() {
         println(this)
     }
 }

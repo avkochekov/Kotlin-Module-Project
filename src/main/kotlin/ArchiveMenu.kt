@@ -9,7 +9,7 @@ class ArchiveMenu(val name: String) : MenuItem() {
     override fun add() {
         println("Enter note title")
         getText()
-            ?. let { title ->
+            ?.let { title ->
                 addItem(NoteMenu(title))
                 println("Added note \"$title\"")
             }
@@ -19,7 +19,7 @@ class ArchiveMenu(val name: String) : MenuItem() {
     override fun remove() {
         println("Enter note index")
         getIndex()
-            ?. let { index ->
+            ?.let { index ->
                 removeItem(index)
                 println("Note removed")
             }
@@ -29,11 +29,11 @@ class ArchiveMenu(val name: String) : MenuItem() {
     override fun select() {
         println("Enter note index")
         getIndex()
-            ?. let { index -> selectItem(index) }
+            ?.let { index -> selectItem(index) }
             ?: println("Invalid note index")
     }
 
-    override fun show(){
+    override fun show() {
         println("Notes:")
         showItems()
     }
